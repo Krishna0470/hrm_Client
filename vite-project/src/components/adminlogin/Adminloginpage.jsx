@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import './adminlogin.css'
 
 
@@ -7,6 +8,7 @@ import './adminlogin.css'
 
 function Adminloginpage() {
 
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
 
@@ -34,6 +36,7 @@ function Adminloginpage() {
         console.log('Login successful');
         alert('Login Successful');
         localStorage.setItem('accessTocken', response.data.data);
+        navigate("/Admin");
 
       } else {
 
@@ -44,6 +47,7 @@ function Adminloginpage() {
 
     } catch (error) {
       console.error('Error during login:', error);
+      alert('something went wrong')
     }
 
   };

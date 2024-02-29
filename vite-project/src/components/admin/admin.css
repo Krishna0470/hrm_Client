@@ -180,35 +180,3 @@
 }
 
 
-button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.bg{
-    background-image: url('../../../public/landing/bg1.jpg') ;
-    padding-top: 20%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding-bottom: 35%;
-}
-
-.head{
-    color: white;
-    font-size: 60px;
-    margin-left: 40px;
-}
-
-.head2{
-    color: white;
-    margin-left: 40px;
-}
-
-.but_adminlogin{
-    margin-left: 50px;
-}
