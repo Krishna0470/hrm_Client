@@ -7,7 +7,8 @@ function Adduserpage() {
 <meta charSet="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <form>
+  <div className="bg_img1">
+  <form className="form1">
     <h2 className="heading">Add user</h2>
   <label htmlFor="first_name">First Name:</label>
   <input type="text" id="first_name" name="first_name" required="" />
@@ -26,6 +27,7 @@ function Adduserpage() {
       SUBMIT
     </button>
   </form>
+  </div>
 </>
     )
 

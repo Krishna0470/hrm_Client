@@ -36,9 +36,6 @@ function AdminNav({displayData}) {
         <li>
           <a href="#">Contact</a>
         </li>
-        <li>
-          <Link to={'/Adduser'}><button  >ADD USER</button></Link>
-        </li>
       </ul>
       <h1 className="logo">ORIGINAL</h1>
     </div>
