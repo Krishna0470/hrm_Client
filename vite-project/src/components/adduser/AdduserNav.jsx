@@ -1,5 +1,7 @@
 import React from "react";
 import './adduser.css';
+import {Link} from "react-router-dom";
+
 
 function AdduserNav({displayData}) {
     return (
@@ -18,7 +20,7 @@ function AdduserNav({displayData}) {
       </div>
       <ul className="menu-items">
         <li>
-          <a href="#">Home</a>
+        <Link to={'/'}>Home</Link>
         </li>
         <li>
           <a href="#">About</a>

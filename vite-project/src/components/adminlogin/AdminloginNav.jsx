@@ -1,5 +1,6 @@
 import React from "react";
 import './adminlogin.css';
+import {Link} from "react-router-dom";
 
 function AdminloginNav({displayData}) {
     return (
@@ -18,7 +19,7 @@ function AdminloginNav({displayData}) {
       </div>
       <ul className="menu-items">
         <li>
-          <a href="#">Home</a>
+        <Link to={'/'}>Home</Link>
         </li>
         <li>
           <a href="#">About</a>

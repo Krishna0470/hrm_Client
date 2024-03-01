@@ -19,7 +19,7 @@ function AdminNav({displayData}) {
       </div>
       <ul className="menu-items">
         <li>
-          <a href="#">Home</a>
+        <Link to={'/'}>Home</Link>
         </li>
         <li>
           <a href="#">About</a>
