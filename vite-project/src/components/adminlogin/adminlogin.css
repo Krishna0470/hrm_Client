@@ -230,3 +230,8 @@ input {
     padding-bottom: 15%;
 }
 
+.error-message{
+    color: red;
+    margin-bottom: 10px;
+    
+}

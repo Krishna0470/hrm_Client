@@ -1,35 +1,137 @@
-import React,{useState} from "react";
-import './adduser.css'
+import React, { useState } from 'react';
+import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
+import './adduser.css';
+
 
 function Adduserpage() {
-    return (
-<>
-<meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <div className="bg_img1">
-  <form className="form1">
-    <h2 className="heading">Add user</h2>
-  <label htmlFor="first_name">First Name:</label>
-  <input type="text" id="first_name" name="first_name" required="" />
-  <label htmlFor="last_name">Last Name:</label>
-  <input type="text" id="last_name" name="last_name" required="" />
-    <label htmlFor="email">Email Id:</label>
-    <input type="email" id="login_email" name="login_email" required="" />
-    <label htmlFor="password">Password:</label>
-    <input
-      type="password"
-      id="login_password"
-      name="login_password"
-      required=""
-    />
-    <button   className="but_user" type="button">
-      SUBMIT
-    </button>
-  </form>
-  </div>
-</>
-    )
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+  const navigate = useNavigate();
 
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 6;
+  };
+
+  const handleFirstnameChange = (e) => {
+    setFirstname(e.target.value);
+  };
+
+  const handleLastnameChange = (e) => {
+    setLastname(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+    
+
+    if (!firstname) {
+      newErrors.firstname = 'First name is required';
+    }
+
+    if (!lastname) {
+      newErrors.lastname = 'Last name is required';
+    }
+
+    if (!email) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    if (!password) {
+      newErrors.password = 'Password is required';
+    } else if (!validatePassword(password)) {
+      newErrors.password = 'Password must be at least 6 characters long';
+    }
+
+    setErrors(newErrors);
+
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log('Form submitted successfully');
+      alert('Form submited successfully');
+    }
+
+    const HOSTED_SERVER_URL = 'http://localhost:4000';
+
+    try {
+      const response = await axios.post(`${HOSTED_SERVER_URL}/users`, {
+        firstname,
+        lastname,
+        email,
+        password,
+      });
+
+      if (response.data.statusCode === 200) {
+        console.log('Form submited successfully');
+        setFirstname('');
+        setLastname('');
+        setEmail('');
+        setPassword('');
+        navigate.push('/Success');
+      } else {
+        console.error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error during form Submission:', error.response.data.message);
+    }
+
+    setSubmitting(false);
+
+  };
+
+  return (
+    <div>
+      <div className="bg_img1">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>First Name:</label>
+          <input type="text" value={firstname} onChange={handleFirstnameChange} />
+          {errors.firstname && <p className='error-message' >{errors.firstname}</p>}
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" value={lastname} onChange={handleLastnameChange} />
+          {errors.lastname && <p className='error-message' >{errors.lastname}</p>}
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" value={email} onChange={handleEmailChange} />
+          {errors.email && <p className='error-message' >{errors.email}</p>}
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" value={password} onChange={handlePasswordChange} />
+          {errors.password && <p className='error-message' >{errors.password}</p>}
+        </div>
+        <button type="submit"  disabled={submitting}>{submitting ? 'Submitting...' : 'Submit'} </button>
+      </form>
+      </div>
+    </div>
+  );
 }
+
+
 export default Adduserpage;
+
+
