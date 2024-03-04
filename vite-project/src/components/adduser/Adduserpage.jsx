@@ -65,9 +65,6 @@ function Adduserpage() {
 
 
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted successfully');
-      alert('Form submited successfully');
-    
 
     const HOSTED_SERVER_URL = 'http://localhost:4000';
 
