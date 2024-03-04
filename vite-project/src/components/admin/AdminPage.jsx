@@ -59,7 +59,7 @@ function AdminPage() {
             </div>
           </div></Link>
         </div>
-
+{/* 
         <div className="table">
           <table>
             <thead>
@@ -87,7 +87,38 @@ function AdminPage() {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
+        <div className="table1">
+
+<h2>User List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img className="avatar1" src="../../../public/landing/avatar1.png" alt="" /></td>
+      <td>1</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>john@example.com</td>
+      <td>password123</td>
+      <td><button>Edit</button> <button>Save</button> </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
       </div>
     </>
   );
