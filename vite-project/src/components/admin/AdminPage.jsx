@@ -59,65 +59,39 @@ function AdminPage() {
             </div>
           </div></Link>
         </div>
-{/* 
-        <div className="table">
+
+        <div className="table1">
+
+          <h2>User List</h2>
+
           <table>
             <thead>
               <tr>
-                <th>Id</th>
+                <th>User</th>
+                <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Password</th>
-                <th>Edit</th>
-                <th>Save</th>
+                <th></th>
               </tr>
             </thead>
-            <tbody id="content">
+            <tbody id="content" >
               {userData.map(user => (
-                <tr key={user._id}>
+                <tr key={user._id} >
+                  <td><img className="avatar1" src="../../../public/landing/avatar1.png" alt="" /></td>
                   <td>{user._id}</td>
                   <td><input type="text" name="firstname" value={user.firstname} disabled /></td>
                   <td><input type="text" name="lastname" value={user.lastname} disabled /></td>
                   <td><input type="email" name="email" value={user.email} disabled /></td>
                   <td><input type="password" name="password" value={user.password} disabled /></td>
-                  <td><button onClick={() => handleEdit(user._id)}>Edit</button></td>
-                  <td><button onClick={() => handleSave(user._id)}>Save</button></td>
+                  <td><button onClick={() => handleEdit(user._id)} ><span class="material-symbols-outlined">edit_document</span></button> <button onClick={() => handleSave(user._id)} ><span class="material-symbols-outlined">save</span></button> </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div> */}
-        <div className="table1">
 
-<h2>User List</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img className="avatar1" src="../../../public/landing/avatar1.png" alt="" /></td>
-      <td>1</td>
-      <td>John</td>
-      <td>Doe</td>
-      <td>john@example.com</td>
-      <td>password123</td>
-      <td><button>Edit</button> <button>Save</button> </td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
+        </div>
 
       </div>
     </>

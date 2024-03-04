@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import axios from "axios";
-
-import { useNavigate } from "react-router-dom";
 import './adduser.css';
 
 
@@ -12,7 +10,6 @@ function Adduserpage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -70,7 +67,7 @@ function Adduserpage() {
     if (Object.keys(newErrors).length === 0) {
       console.log('Form submitted successfully');
       alert('Form submited successfully');
-    }
+    
 
     const HOSTED_SERVER_URL = 'http://localhost:4000';
 
@@ -82,21 +79,24 @@ function Adduserpage() {
         password,
       });
 
-      if (response.data.statusCode === 200) {
+      // console.log('Response',response);
+
+      if (response &&  response.data && response.data.statusCode) {
+        alert('Form submited successfully');
         console.log('Form submited successfully');
         setFirstname('');
         setLastname('');
         setEmail('');
         setPassword('');
-        navigate.push('/Success');
       } else {
         console.error('Form submission failed');
       }
     } catch (error) {
-      console.error('Error during form Submission:', error.response.data.message);
+      console.error('Error during form Submission:', error.response? error.response.data.message:error.message);
     }
 
     setSubmitting(false);
+  }
 
   };
 
