@@ -17,8 +17,9 @@ function Landing() {
                 <Route path="/" exact element={<LandingNav/>} />
                 {/* <Route path="/" exact element={<Landingpage/>} /> */}
                 <Route path="/adminlogin" exact element={<Adminlogin/>} />
-                <Route path="/adduser" exact element={<Adduser/>} />
+                <Route path="/adduser" exact element={<Adduser/>} /> 
                 <Route path="/admin"  exact element={<Admin/>}/>
+
                 </Routes>
             </>
         </Router>

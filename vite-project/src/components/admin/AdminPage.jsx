@@ -3,11 +3,10 @@ import './admin.css';
 import { Link } from "react-router-dom";
 
 function AdminPage() {
-  const [userData, setUserData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    getData();
-  }, []);
+
 
   const getData = async() =>  {
     try {
@@ -19,16 +18,19 @@ function AdminPage() {
         }
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
 
-      const data = await response.json();
-      setUserData(data.data);
+      const parsedData = await response.json();
+      setData(parsedData.data);
+      console.log("parsedData:",parsedData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  }
+  };
+
+   getData();
+   
+}, []);
+
 
   return (
     <>
@@ -77,15 +79,15 @@ function AdminPage() {
               </tr>
             </thead>
             <tbody id="content" >
-              {userData.map(user => (
-                <tr key={user._id} >
+              {data && data .map((data) => (
+                <tr key={data._id} >
                   <td><img className="avatar1" src="../../../public/landing/avatar1.png" alt="" /></td>
-                  <td>{user._id}</td>
-                  <td><input type="text" name="firstname" value={user.firstname} disabled /></td>
-                  <td><input type="text" name="lastname" value={user.lastname} disabled /></td>
-                  <td><input type="email" name="email" value={user.email} disabled /></td>
-                  <td><input type="password" name="password" value={user.password} disabled /></td>
-                  <td><button onClick={() => handleEdit(user._id)} ><span class="material-symbols-outlined">edit_document</span></button> <button onClick={() => handleSave(user._id)} ><span class="material-symbols-outlined">save</span></button> </td>
+                  <td>{data._id}</td>
+                  <td><input type="text" name="firstname" value={data.firstname} disabled /></td>
+                  <td><input type="text" name="lastname" value={data.lastname} disabled /></td>
+                  <td><input type="email" name="email" value={data.email} disabled /></td>
+                  <td><input type="password" name="password" value={data.password} disabled /></td>
+                  <td><button onClick={() => handleEdit(data._id)} ><span className="material-symbols-outlined">edit_document</span></button> <button onClick={() => handleSave(data._id)} ><span className="material-symbols-outlined">save</span></button> </td>
                 </tr>
               ))}
             </tbody>
