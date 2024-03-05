@@ -3,33 +3,33 @@ import './admin.css';
 import { Link } from "react-router-dom";
 
 function AdminPage() {
-  const [data, setData] = useState([]);
+//   const [data, setData] = useState([]);
 
-  useEffect(() => {
-
-
-  const getData = async() =>  {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:4000/getData', {
-        method: "GET",
-        headers: {
-          "authorization": `Bearer ${token}`
-        }
-      });
+//   useEffect(() => {
 
 
-      const parsedData = await response.json();
-      setData(parsedData.data);
-      console.log("parsedData:",parsedData);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+//   const getData = async() =>  {
+//     try {
+//       const token = localStorage.getItem('token');
+//       const response = await fetch('http://localhost:4000/getData', {
+//         method: "GET",
+//         headers: {
+//           "authorization": `Bearer ${token}`
+//         }
+//       });
 
-   getData();
+
+//       const parsedData = await response.json();
+//       setData(parsedData.data);
+//       console.log("parsedData:",parsedData);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     }
+//   };
+
+//    getData();
    
-}, []);
+// }, []);
 
 
   return (
@@ -60,9 +60,18 @@ function AdminPage() {
               <div className="filledbar" />
             </div>
           </div></Link>
+          <Link to={'/Userlist'}><div className="card">
+            <h3 className="title">Userlist</h3>
+            <img className="admin_img" src="../../../public/landing/Adduser.png" alt="" />
+            <div className="bar">
+              <div className="emptybar" />
+              <div className="filledbar" />
+            </div>
+          </div></Link>
+
         </div>
 
-        <div className="table1">
+        {/* <div className="table1">
 
           <h2 className="list">User List</h2>
 
@@ -93,7 +102,7 @@ function AdminPage() {
             </tbody>
           </table>
 
-        </div>
+        </div> */}
 
       </div>
     </>
