@@ -9,13 +9,13 @@ function AdminPage() {
     getData();
   }, []);
 
-  async function getData() {
+  const getData = async() =>  {
     try {
       const token = localStorage.getItem('token');
       const response = await fetch('http://localhost:4000/getData', {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`
+          "authorization": `Bearer ${token}`
         }
       });
 
@@ -62,7 +62,7 @@ function AdminPage() {
 
         <div className="table1">
 
-          <h2>User List</h2>
+          <h2 className="list">User List</h2>
 
           <table>
             <thead>

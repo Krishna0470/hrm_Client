@@ -313,7 +313,7 @@ table,tr,th,td{
 } */
 
 
-h2 {
+.list {
     text-align: center;
     font-size: 40px;
   }
