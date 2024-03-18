@@ -33,12 +33,13 @@ function UserlistPage() {
 
 return (
     <>
-    <div className="bg11">
+    <div className="bg12">
      <div className="table1">
 
 <h2 className="list">User List</h2>
 
-<table>
+<div class="table-responsive">
+<table class="table user-list" >
   <thead>
     <tr>
       <th>User</th>
@@ -59,11 +60,12 @@ return (
         <td><input type="text" name="lastname" value={data.lastname} disabled /></td>
         <td><input type="email" name="email" value={data.email} disabled /></td>
         <td><input type="password" name="password" value={data.password} disabled /></td>
-        <td><button onClick={() => handleEdit(data._id)} ><span className="material-symbols-outlined">edit_document</span></button> <button onClick={() => handleSave(data._id)} ><span className="material-symbols-outlined">save</span></button> </td>
+        <td><button onClick={() => handleEdit(data._id)} ><span class="material-symbols-outlined">visibility</span></button></td>
       </tr>
     ))}
   </tbody>
 </table>
+</div>
 
 </div>
 </div>

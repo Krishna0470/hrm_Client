@@ -70,13 +70,14 @@ function Adminloginpage() {
       }
     } catch (error) {
       console.error('Error during login:', error.response.data.message);
+      alert('Login Failed');
     }
   };
 
   return (
     <>
       <div className="bg_img">
-        <form>
+        <form className="form1">
           <h2 className="heading">Admin login</h2>
           <label htmlFor="email">Admin Name:</label>
           <input type="text" value={email} onChange={handleEmailChange} required="" />

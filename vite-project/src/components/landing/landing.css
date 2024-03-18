@@ -195,7 +195,7 @@ button {
     padding-top: 20%;
     background-repeat: no-repeat;
     background-size: 100%;
-    padding-bottom: 35%;
+    padding-bottom: 20%;
 }
 
 .head{
@@ -212,3 +212,45 @@ button {
 .but_adminlogin{
     margin-left: 50px;
 }
+
+
+.text{
+    color: #b49c73;
+}
+/* .down{
+    background-color: darkslategray;
+} */
+
+.atag{text-decoration: none;
+    color: black;
+}
+.atag:hover{ color: black;}
+
+.text1{
+    /* color: white; */
+    font-size: 50px;
+}
+
+.div5{text-align: center;margin-top: 30px;}
+.p_1,.p_4{color: green;}
+
+.mar_1{
+    margin-top: 60px;
+    border-top: 1px solid black;
+    padding-top: 40px;
+}
+
+.div_8{
+    margin-top: 40px;
+    text-align:center;
+    background-color:beige;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.div_11{text-align: center;margin-top: 40px;}
+
+.div5_1{text-align: center;margin-top: 30px;margin-bottom: 60px;}
+
+ .px-3{color: white;background-color: green;}
+

@@ -100,7 +100,7 @@ function Adduserpage() {
   return (
     <div>
       <div className="bg_img1">
-      <form onSubmit={handleSubmit}>
+      <form className='form2' onSubmit={handleSubmit}>
         <div>
           <label>First Name:</label>
           <input type="text" value={firstname} onChange={handleFirstnameChange} />
